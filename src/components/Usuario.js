@@ -14,7 +14,7 @@ function Usuario({guardarDatos, history, guardarEstado}) {
         
         <div className="wraper">
             <form
-            className="formulario"
+            className=""
             >
                 <label>Usuario</label>
                 <input
@@ -34,6 +34,10 @@ function Usuario({guardarDatos, history, guardarEstado}) {
                 >
                     <option>Seleccione una categoria</option>
                     <option value="21">Deportes</option>
+                    <option value="10">Entretenimiento: libros</option>
+                    <option value="15">Entretenimiento: videojuegos</option>
+                    <option value="9">Conocimientos generales</option>
+                    <option value="20">Mitología</option>
                 </select>
                 <label>Dificultad</label>
                 <select

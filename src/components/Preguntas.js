@@ -90,7 +90,7 @@ function Preguntas(props) {
                 usuario={usuario}
                 ganancias={ganancias}
             />
-            <div style={{ fontSize: "2.5em", color: 'red' }}>
+            <div style={{ fontSize: "2.5em", color: 'azul' }}>
                 <FontAwesomeIcon
                     icon={faSignOutAlt}
                     onClick={salir}
@@ -98,6 +98,8 @@ function Preguntas(props) {
             </div>
 
             <div className="wraper">
+                <Cronometro/>
+                <br/>
                 <form className="">
                     <p >{preguntas[count].question}</p>
                     <div>
