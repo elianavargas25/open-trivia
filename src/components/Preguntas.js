@@ -5,16 +5,16 @@ import '../css/usuario.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom'
-import  Cronometro from '../components/cronometro'
+import Cronometro from '../components/cronometro'
 function Preguntas(props) {
 
-    const [bool, guardarBool]=useState("Holis");
+    const [bool, guardarBool] = useState("Holis");
     const {
         temp, usuario, preguntas, count, color1,
         incrementarContador, ganancias,
         ejec, guardarEjec, array, guardarArray, history, color2,
         color3, color4, guardarColor4, guardarColor3, guardarColor2,
-        guardarColor1,Limpiar
+        guardarColor1, Limpiar
     } = props;
     let correct = preguntas[count].correct_answer;
 
@@ -42,7 +42,7 @@ function Preguntas(props) {
     }, [ejec, guardarEjec, count, preguntas, temp, correct]);
 
 
-    
+
 
     const salir = () => {
         Limpiar();
@@ -98,8 +98,8 @@ function Preguntas(props) {
             </div>
 
             <div className="wraper">
-                <Cronometro/>
-                <br/>
+                <Cronometro />
+                <br />
                 <form className="">
                     <p >{preguntas[count].question}</p>
                     <div>

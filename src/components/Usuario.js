@@ -2,19 +2,19 @@ import React from 'react';
 import { withRouter } from 'react-router-dom'
 import '../css/usuario.css'
 
-function Usuario({guardarDatos, history, guardarEstado}) {
+function Usuario({ guardarDatos, history, guardarEstado }) {
 
-    const OnClick =(e)=>{
+    const OnClick = (e) => {
         e.preventDefault();
         guardarEstado(true);
         history.replace("./preguntas");
     }
-   
+
     return (
-        
+
         <div className="wraper">
             <form
-            className=""
+                className=""
             >
                 <label>Usuario</label>
                 <input
@@ -51,13 +51,13 @@ function Usuario({guardarDatos, history, guardarEstado}) {
                     <option value="medium">Medio</option>
                     <option value="hard">Dificil</option>
                 </select>
-                <input 
-                type="submit" 
-                value="Ingresar" 
-                id="ingresar"
-                className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3"
-                onClick={OnClick}
-                required
+                <input
+                    type="submit"
+                    value="Ingresar"
+                    id="ingresar"
+                    className="font-weight-bold text-uppercase mt-5 btn btn-primary btn-block py-3"
+                    onClick={OnClick}
+                    required
                 />
             </form>
         </div >
