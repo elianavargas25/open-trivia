@@ -14,7 +14,7 @@ function Preguntas(props) {
         incrementarContador, ganancias,
         ejec, guardarEjec, array, guardarArray, history, color2,
         color3, color4, guardarColor4, guardarColor3, guardarColor2,
-        guardarColor1,Limpiar,guardarEstado
+        guardarColor1,Limpiar
     } = props;
     let correct = preguntas[count].correct_answer;
 
@@ -98,7 +98,7 @@ function Preguntas(props) {
             </div>
 
             <div className="wraper">
-                <form className="formulario">
+                <form className="">
                     <p >{preguntas[count].question}</p>
                     <div>
                         <input

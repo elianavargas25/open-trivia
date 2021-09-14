@@ -3,7 +3,7 @@ import '../css/usuario.css'
 function Nav({ usuario, ganancias }) {
     return (
         <Fragment>
-            <nav className="navbar navbar-expand-lg navbar-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark nav-azu">
                 <div className="container">
                     <ul className="navbar-nav mr-auto">
                         <strong>Nombre: {usuario.usuario}</strong>

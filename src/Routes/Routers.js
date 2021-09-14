@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Usuario from '../components/Usuario';
 import Preguntas from '../components/Preguntas';
-import Cronometro from '../components/cronometro'
 import axios from 'axios'
 
 
@@ -69,12 +68,6 @@ function Routers() {
                     <Usuario
                         guardarDatos={guardarDatos}
                         guardarEstado={guardarEstado}
-                    />
-                )}
-                />
-                <Route exact path="/cronometro" render={() => (
-                    <Cronometro
-                        
                     />
                 )}
                 />
