@@ -1,38 +1,27 @@
-import React, { Component } from 'react'
+import React, { useRef, useEffect, useState } from "react";
 
-class Cronometro extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      count: 30
+export default function Cronometro({final,bool,guardarBool, num, setNum, volerEmpezar}) {
+  //const [num, setNum] = useState(15);
+  const [pause, setPause] = useState(false);
+  
+  let intervalRef = useRef();
+  
+  const decreaseNum = () => setNum((prev) => prev - 1);
+
+  useEffect(() => {
+    if(bool){
+        volerEmpezar();
+        guardarBool(false);
     }
-  }
-
-  render() {
-    const { count } = this.state
-    return (
-      <div>
-        <h1>Tiempo: {count}</h1>
-      </div>
-    )
-  }
-  // setInterval
-  // clearInterval
-  componentDidMount() {
-    this.myInterval = setInterval(() => {
-      this.setState(prevState => ({
-        count: prevState.count - 1
-      }))
-      console.log(this.estado)
-      if (this.state.count === 0) {
-        window.location.href = "/";
-        alert("Se te acabo el tiempo muchas gracias por jugar");
-      }
-    }, 1000)
-
-  }
-
+    intervalRef.current = setInterval(decreaseNum, 1200);
+    return () => clearInterval(intervalRef.current);
+  }, [bool,guardarBool,volerEmpezar,intervalRef,decreaseNum]);
+  
+  return (
+    <div>
+        {num===0 ? final():null}
+      <h1>{num}</h1>
+      
+    </div>
+  );
 }
-
-export default Cronometro;
-

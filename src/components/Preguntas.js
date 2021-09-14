@@ -3,19 +3,21 @@ import Nav from './nav';
 import '../css/preguntas.css'
 import '../css/usuario.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faBullseye, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom'
-import Cronometro from '../components/cronometro'
+import  Cronometro from '../components/cronometro'
 function Preguntas(props) {
 
+    
     const {
         temp, usuario, preguntas, count, color1,
         incrementarContador, ganancias,
         ejec, guardarEjec, array, guardarArray, history, color2,
         color3, color4, guardarColor4, guardarColor3, guardarColor2,
-        guardarColor1, Limpiar
+        guardarColor1,Limpiar,bool,guardarBool
     } = props;
     let correct = preguntas[count].correct_answer;
+    const [num, setNum] = useState(30);
 
     useEffect(() => {
         if (ejec) {
@@ -41,8 +43,15 @@ function Preguntas(props) {
     }, [ejec, guardarEjec, count, preguntas, temp, correct]);
 
 
+    const final = ()=>{
+        
+        alert("Se acabo el tiempo, gracias por jugar");
+        window.location.href="/";
+    }
 
-
+    const volerEmpezar = ()=>{
+        setNum(30);
+    }
     const salir = () => {
         Limpiar();
         history.push('/');
@@ -69,6 +78,7 @@ function Preguntas(props) {
         }
         if (preguntas[count].correct_answer === e.target.value) {
             setTimeout(() => {
+                guardarBool(true);
                 incrementarContador();
             }, 5000);
         } else {
@@ -81,14 +91,13 @@ function Preguntas(props) {
 
         }
     }
-    
     return (
         <Fragment>
             <Nav
                 usuario={usuario}
                 ganancias={ganancias}
             />
-            <div style={{ fontSize: "2.5em", color: 'azul' }}>
+            <div style={{ fontSize: "2.5em", color: 'red' }}>
                 <FontAwesomeIcon
                     icon={faSignOutAlt}
                     onClick={salir}
@@ -96,8 +105,14 @@ function Preguntas(props) {
             </div>
 
             <div className="wraper">
-                <Cronometro />
-                <br />
+                <Cronometro
+                final={final}
+                bool={bool}
+                guardarBool={guardarBool}
+                num={num}
+                setNum={setNum}
+                volerEmpezar={volerEmpezar}
+                />
                 <form className="">
                     <p >{preguntas[count].question}</p>
                     <div>
