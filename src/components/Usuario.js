@@ -64,5 +64,4 @@ function Usuario({ guardarDatos, history, guardarEstado }) {
     );
 
 }
-//export {Usuario};
 export default withRouter(Usuario);
